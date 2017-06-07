@@ -1,0 +1,120 @@
+[ 2017-06-07T11:53:16+08:00 ] ::1 /starLogin/thinkphp3.2.3/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002745s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.023699s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.023893s ]
+ERR: 无法加载控制器:Index
+
+[ 2017-06-07T11:53:24+08:00 ] ::1 /starLogin/thinkphp3.2.3/index.php/Home/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000053s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000824s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001183s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001544s ]
+ERR: 无法加载控制器:Index
+
+[ 2017-06-07T11:53:36+08:00 ] ::1 /starLogin/thinkphp3.2.3/index.php/Home/testTP
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001206s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001473s ]
+ERR: 非法操作:index
+
+[ 2017-06-07T11:54:41+08:00 ] ::1 /starLogin/thinkphp3.2.3/index.php/Home/testTP
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000154s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000717s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000881s ]
+ERR: 非法操作:index
+
+[ 2017-06-07T11:54:55+08:00 ] ::1 /starLogin/thinkphp3.2.3/index.php/Home/testTP/testWeChatOALogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000805s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001050s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.015809s ]
+INFO: [ app_end ] --END-- [ RunTime:0.016069s ]
+
+[ 2017-06-07T11:58:39+08:00 ] ::1 /starLogin/thinkphp3.2.3/index.php/Home/testTP/testWeChatOALogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000165s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000716s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000709s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000853s ]
+
+[ 2017-06-07T11:58:44+08:00 ] ::1 /starLogin/thinkphp3.2.3/index.php/Home/testTP/testWeChatOALogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000836s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001092s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000802s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001051s ]
+
+[ 2017-06-07T14:56:55+08:00 ] ::1 /starLogin/thinkphp3.2.3/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000132s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000446s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001794s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001958s ]
+ERR: 无法加载控制器:Index
+
+[ 2017-06-07T14:57:16+08:00 ] ::1 /starLogin/thinkphp3.2.3/Home/testTP/testWeChatOALogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000243s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000668s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000886s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\starLogin\thinkphp3.2.3\Application\Home\Controller\TestTPController.class.php 第 17 行.
+NOTIC: [8] Undefined index: code C:\wamp\www\starLogin\thinkphp3.2.3\ThinkPHP\Library\Vendor\starLogin\starLogin.php 第 18 行.
+NOTIC: [8] Undefined index: HTTP_REFERER C:\wamp\www\starLogin\thinkphp3.2.3\ThinkPHP\Library\Vendor\starLogin\starLogin.php 第 20 行.
+ERR: 回调地址不能为空
+
+[ 2017-06-07T14:58:21+08:00 ] ::1 /starLogin/thinkphp3.2.3/Home/testTP/testWeChatOALogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000150s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000645s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000825s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\starLogin\thinkphp3.2.3\Application\Home\Controller\TestTPController.class.php 第 17 行.
+NOTIC: [8] Undefined index: code C:\wamp\www\starLogin\thinkphp3.2.3\ThinkPHP\Library\Vendor\starLogin\starLogin.php 第 18 行.
+
+[ 2017-06-07T14:58:25+08:00 ] ::1 /starLogin/thinkphp3.2.3/Home/testTP/testWeChatOALogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000262s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000703s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000839s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\starLogin\thinkphp3.2.3\Application\Home\Controller\TestTPController.class.php 第 17 行.
+NOTIC: [8] Undefined index: code C:\wamp\www\starLogin\thinkphp3.2.3\ThinkPHP\Library\Vendor\starLogin\starLogin.php 第 18 行.
+
+[ 2017-06-07T15:01:11+08:00 ] ::1 /starLogin/thinkphp3.2.3/Home/testTP/testWeChatOALogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000189s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000767s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000897s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\starLogin\thinkphp3.2.3\Application\Home\Controller\TestTPController.class.php 第 17 行.
+NOTIC: [8] Undefined index: code C:\wamp\www\starLogin\thinkphp3.2.3\ThinkPHP\Library\Vendor\starLogin\starLogin.php 第 18 行.
+
