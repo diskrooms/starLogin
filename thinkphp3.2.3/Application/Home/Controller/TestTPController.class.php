@@ -2,7 +2,7 @@
 /**
  * @Author diskrooms
  **/
-namespace User\Controller;
+namespace Home\Controller;
 
 use Think\Controller;
 //api首页
@@ -20,9 +20,10 @@ class TestTPController extends Controller {
 		if($_SESSION['uid']){
 			echo '登录成功';	
 		} else {
-			$login = new \starLogin('wx157be178b8b3663f','78038fde460208de8fd0b3b149a42000');
+			$login = new \starLogin('','');
 			$userInfo = $login->weChatOALogin('http://www.yaoyaoyouxi.com/',1);
 			$_SESSION['uid'] = $userInfo['openid'];
+			
 		}
 	}
 	
