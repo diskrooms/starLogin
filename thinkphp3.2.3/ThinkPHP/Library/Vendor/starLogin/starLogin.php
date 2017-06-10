@@ -54,6 +54,10 @@ class starLogin{
 		}
 	}
 	
+	//web QQ登录
+	public function webQQLogin(){
+		
+	}
 	
 	
 	public function callback($callback=''){
