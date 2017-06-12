@@ -62,4 +62,27 @@ class TestTPController extends Controller {
 		$this->display();
 	}
 	
+	//webQQ登录测试页
+	public function testWebQQLoginIndex(){
+		$uid = $_SESSION['uid'] ? $_SESSION['uid'] : 0;
+		
+		$this->assign('uid',$uid);
+		$this->display();
+	}
+	
+	//webQQ登录接口
+	public function testWebQQLogin(){
+		if($_SESSION['uid']){
+			echo '登录成功';
+		} else {
+			$login = new \starLogin('','',0);		//第一个参数是QQ AppId 第二个参数是QQ AppSecret 第三个参数是登录类型 1表示微信 0表示QQ 缺省为1
+			$userInfo = $login->webQQLogin();
+			//dump($userInfo);
+			//exit();
+			$_SESSION['uid'] = $userInfo['openid'];
+			//处理业务逻辑
+			
+			$login->callback();
+		}
+	}
 }

@@ -3,12 +3,20 @@ class starLogin{
 	private $weChatAppId = '';		//微信公众号AppId
 	private $weChatAppSecret = '';	//微信公众号AppSecret
 	
-	public function __construct($appId = '',$appSecret = ''){
+	private $webQQAppId = '';		//QQ AppId
+	private $webQQAppSecret = '';	//QQ AppSecret
+	
+	public function __construct($appId = '',$appSecret = '',$type=1){
 		if(empty($appId) || empty($appSecret)){
 			throw new exception('appId和appSecret不能为空');
 		}
-		$this->weChatAppId = $appId;
-		$this->weChatAppSecret = $appSecret;
+		if($type){
+			$this->weChatAppId = $appId;
+			$this->weChatAppSecret = $appSecret;
+		} else {
+			$this->webQQAppId = $appId;
+			$this->webQQAppSecret = $appSecret;
+		}
 	}
 	
 	//微信公众号登录
@@ -56,7 +64,33 @@ class starLogin{
 	
 	//web QQ登录
 	public function webQQLogin(){
-		
+		$curUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];	//当前访问地址(不带参数)
+		$code = addslashes(trim($_GET['code']));
+		$callback = addslashes(trim($_GET['callback'])) ? addslashes(trim($_GET['callback'])) : addslashes(trim($_SERVER['HTTP_REFERER']));;
+		$redirectUrl = urlencode($curUrl.'?callback='.urlencode($callback));
+		if(empty($code)){
+			$scope = 'get_user_info';
+			$authorizeUrl = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=".$this->webQQAppId."&redirect_uri=".urlencode($redirectUrl)."&state=".md5(uniqid(rand(), TRUE))."&scope=".$scope;
+			header('Location:'.$authorizeUrl);
+			exit();
+		} else {
+			$access_token_str = $this->requestGet('https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id='.$this->webQQAppId.'&client_secret='.$this->webQQAppSecret.'&code='.$code.'&redirect_uri='.urlencode($redirectUrl));
+			parse_str($access_token_str,$access_token_arr);
+			//获取openid
+			$openid_str = $this->requestGet('https://graph.qq.com/oauth2.0/me?access_token='.$access_token_arr['access_token'].'&unionid=1');
+			//echo $openid_str;
+			//exit();
+			$openid_str = str_replace('callback(','', $openid_str);
+			$openid_str = str_replace(');','', $openid_str);
+			$openid_arr = json_decode(trim($openid_str),true);
+			$openid = $openid_arr['openid'];
+			$unionid = $openid_arr['unionid'];
+			//获取用户信息
+			$get_user_info_str = $this->requestGet('https://graph.qq.com/user/get_user_info?access_token='.$access_token_arr['access_token'].'&oauth_consumer_key='.$this->webQQAppId.'&openid='.$openid);
+			$qq_user_info_arr = json_decode(trim($get_user_info_str),true);
+			//dump($qq_user_info_arr);
+			return $qq_user_info_arr;
+		}
 	}
 	
 	
