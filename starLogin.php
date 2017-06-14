@@ -105,7 +105,12 @@ class starLogin{
 	}
 	
 	//GET请求数据 如果有curl扩展 就使用curl进行请求 如果没有相应模块 就使用file_get_contents函数
-	private function requestGet($url='',$timeout=6){
+	//url 		要请求的url地址
+	//timeout 	超时时间
+	//count		请求总数(超时重发)
+	private function requestGet($url = '',$timeout = 6,$count = 3){
+		static $index = 0 ;
+    	$index++;
 		if(empty($url)){
 			throw new exception('url参数不能为空');
 		}
@@ -119,7 +124,15 @@ class starLogin{
 			curl_setopt($ch, CURLOPT_HEADER, FALSE);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 			$content = curl_exec($ch);
-	        curl_close($ch);
+	        if($content === false){
+				if(curl_errno($ch) == CURLE_OPERATION_TIMEDOUT){
+					if($index < $count){
+						//超时重发
+						$this->requestGet($url);
+					}
+				}
+			}
+			curl_close($ch);
 		} else {
 			$content = file_get_contents($url);
 		}
@@ -127,7 +140,12 @@ class starLogin{
 	}
 	
 	//POST请求数据 如果有curl扩展 就使用curl进行请求 如果没有相应模块 就是用file_get_contents函数
-	private function requestPost($url='',$data=array(),$timeout=6){
+	//url 		要请求的url地址
+	//timeout 	超时时间
+	//count		请求总数(超时重发)
+	private function requestPost($url='',$data=array(),$timeout=6,$count=3){
+		static $index = 0 ;
+    	$index++;
 		if(empty($url)){
 			throw new exception('url参数不能为空');
 		}
@@ -143,7 +161,16 @@ class starLogin{
 			curl_setopt($ch, CURLOPT_POST, 1);				// post方式
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);	// post数据
 			$content = curl_exec($ch);
-	        curl_close($ch);
+	        if($content === false){
+				if(curl_errno($ch) == CURLE_OPERATION_TIMEDOUT){
+					if($index < $count){
+						//超时重发
+						$this->requestPost($url,$data);
+					}
+				}
+				
+			} 
+			curl_close($ch);
 		} else {
 			$data = http_build_query($data);
 			$context = array(
