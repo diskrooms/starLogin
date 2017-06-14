@@ -120,6 +120,12 @@ class starLogin{
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 			$content = curl_exec($ch);
 	        curl_close($ch);
+			if($content === false){
+				if(curl_errno($ch) == CURLE_OPERATION_TIMEOUT){
+					//处理超时
+					$this->requestPost($url,$data,1,3);
+				}
+			}
 		} else {
 			$content = file_get_contents($url);
 		}
@@ -144,6 +150,12 @@ class starLogin{
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);	// post数据
 			$content = curl_exec($ch);
 	        curl_close($ch);
+			if($content === false){
+				if(curl_errno($ch) == CURLE_OPERATION_TIMEOUT){
+					//处理超时
+					$this->requestPost($url,$data,1,3);
+				}
+			}
 		} else {
 			$data = http_build_query($data);
 			$context = array(
