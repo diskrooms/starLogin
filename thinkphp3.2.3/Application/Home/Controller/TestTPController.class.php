@@ -46,6 +46,7 @@ class TestTPController extends Controller {
 		
 	}
 	
+	//公众号登录回调
 	public function testWeChatOALoginIndex(){
 		
 		$uid = $_SESSION['uid'] ? $_SESSION['uid'] : 0;
@@ -54,6 +55,7 @@ class TestTPController extends Controller {
 		$this->display();
 	}
 	
+	//PC微信扫码登录回调
 	public function testWeChatQRLoginIndex(){
 		
 		$uid = $_SESSION['uid'] ? $_SESSION['uid'] : 0;
