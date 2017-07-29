@@ -49,7 +49,7 @@ class starLogin{
 	//微信PC网站扫码登录
 	public function weChatQRLogin(){
 		$curUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];	//当前访问地址(不带参数)
-		$code = addslashes(trim($_GET['code']));
+		$code = addslashes(trim($this->request->param('code')));
 		if(empty($code)){
 			$redirectUrl = urlencode($curUrl);
 			$authorizeUrl = 'https://open.weixin.qq.com/connect/qrconnect?appid='.$this->weChatAppId.'&redirect_uri='.$redirectUrl.'&response_type=code&scope=snsapi_login&state=isWXAddr#wechat_redirect';	
