@@ -58,7 +58,10 @@ class starLogin{
 		} else {
 			$access_token_json = $this->requestGet('https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$this->weChatAppId.'&secret='.$this->weChatAppSecret.'&code='.$code.'&grant_type=authorization_code');
 			$access_token_arr = json_decode($access_token_json,true);
-			return $access_token_arr;
+			$openid = $access_token_arr['openid'];
+			$access_token = $access_token_arr['access_token'];
+			$userinfo = $this->requestGet('https://api.weixin.qq.com/sns/userinfo?access_token='.$access_token.'&openid='.$openid);
+			return json_decode($userinfo,true);
 		}
 	}
 	
