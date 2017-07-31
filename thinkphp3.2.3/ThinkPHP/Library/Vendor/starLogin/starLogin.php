@@ -87,11 +87,13 @@ class starLogin{
 			$openid_str = str_replace('callback(','', $openid_str);
 			$openid_str = str_replace(');','', $openid_str);
 			$openid_arr = json_decode(trim($openid_str),true);
-			$openid = $openid_arr['openid'];
-			$unionid = $openid_arr['unionid'];
+			$openid = isset($openid_arr['openid']) ? $openid_arr['openid'] : '';
+			$unionid = isset($openid_arr['unionid']) ? $openid_arr['unionid'] : '';
 			//获取用户信息
 			$get_user_info_str = $this->requestGet('https://graph.qq.com/user/get_user_info?access_token='.$access_token_arr['access_token'].'&oauth_consumer_key='.$this->webQQAppId.'&openid='.$openid);
 			$qq_user_info_arr = json_decode(trim($get_user_info_str),true);
+			$qq_user_info_arr['openid'] = $openid;
+			$qq_user_info_arr['unionid'] = $unionid;
 			//dump($qq_user_info_arr);
 			return $qq_user_info_arr;
 		}
