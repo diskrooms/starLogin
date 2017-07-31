@@ -66,11 +66,12 @@ class starLogin{
 	}
 	
 	//web QQ登录
+	//注意connect.qq.com上的回调地址的大小写
 	public function webQQLogin(){
 		$curUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];	//当前访问地址(不带参数)
 		$code = addslashes(trim($_GET['code']));
 		$callback = addslashes(trim($_GET['callback'])) ? addslashes(trim($_GET['callback'])) : addslashes(trim($_SERVER['HTTP_REFERER']));;
-		$redirectUrl = urlencode($curUrl.'?callback='.urlencode($callback));
+		$redirectUrl = $curUrl.'?callback='.urlencode($callback);
 		if(empty($code)){
 			$scope = 'get_user_info';
 			$authorizeUrl = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=".$this->webQQAppId."&redirect_uri=".urlencode($redirectUrl)."&state=".md5(uniqid(rand(), TRUE))."&scope=".$scope;
