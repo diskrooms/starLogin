@@ -70,7 +70,8 @@ class starLogin{
 	public function webQQLogin(){
 		$curUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];	//当前访问地址(不带参数)
 		$code = addslashes(trim($_GET['code']));
-		$callback = addslashes(trim($_GET['callback'])) ? addslashes(trim($_GET['callback'])) : addslashes(trim($_SERVER['HTTP_REFERER']));;
+		$HTTP_REFERER = isset($_SERVER['HTTP_REFERER'])  ? addslashes(trim($_SERVER['HTTP_REFERER'])) : '';
+		$callback = addslashes(trim($_GET['callback'])) ? addslashes(trim($_GET['callback'])) : $HTTP_REFERER;
 		$redirectUrl = $curUrl.'?callback='.urlencode($callback);
 		if(empty($code)){
 			$scope = 'get_user_info';
